@@ -5,10 +5,11 @@ import UserModel from './src/models/User.js'
 import bcrypt from 'bcrypt'
 import userRoute from './src/routes/userRoute.js';
 import cookieParser from 'cookie-parser';
-
 import MongoStore from 'connect-mongo';
 import multer from 'multer';
 import path from 'path';
+import analyzeRoute from './src/routes/commentRoute.js';
+import { analyze } from './src/controllers/commentController.js';
 dotenv.config()
 
 const app = express()
@@ -47,6 +48,7 @@ app.use(express.json())
 conn()
 
 app.use('/user', userRoute);
+app.use('/analyze', analyzeRoute);
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })

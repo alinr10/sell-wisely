@@ -10,7 +10,8 @@ import { useNavigate } from "react-router-dom";
 
 import Homepage from './pages/homepage/homepage';
 
-
+import Analyze from './pages/analyze';
+import MyAnalyze from './pages/myanalyzes';
 
 function App() {
   const navigate = useNavigate();
@@ -18,8 +19,7 @@ function App() {
 
 
 
-  //const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userId, setUserId] = useState(null); // Kullanıcının ID'sini saklamak için
+  const [userId, setUserId] = useState(null);
 
   const [isLoggedIn, setIsLoggedIn] = useState(null);
 
@@ -54,6 +54,9 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Homepage />} />
+      <Route path="/analyze" element={<Analyze />} />
+      <Route path="/myanalyzes" element={<MyAnalyze />} />
+
 
       {/* <Route path="/order" element={isLoggedIn ? <Food /> : <Navigate to="/" />} />
       <Route path="/personalized" element={isLoggedIn ? <Personalized /> : <Navigate to="/" />} />
